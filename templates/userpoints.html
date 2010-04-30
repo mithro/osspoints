@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+{{ username }}<br/><br/>
+{% if points_earner %}
+<b>{{ points_earner.points }} total points</b>
+
+{% else %}
+ <b>No points yet!</b>
+{% endif %}
+
+{% endblock %}
