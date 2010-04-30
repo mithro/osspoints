@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block scripts %}
+<style type="text/css">
+  .ui-autocomplete {
+    background-color: white;
+    border: 1px solid black;
+    width: 200px;
+  }
+  input[type=text] {
+    width: 200px;
+  }
+</style>
+<script
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script
+  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<script src="/js/jquery.form.js"></script>
+<script src="/js/usernames.js"></script>
+<script src="/js/reasons.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#form').ajaxForm(function() {
+      alert('Added!');
+    });
+    $("input#username").autocomplete({
+      source: usernames
+    });
+    $("input#reason").autocomplete({
+      source: reasons,
+      select: function(event, ui) { 
+        $("#points-suggest").html("Suggested: " + ui.item.points);
+      }
+    });
+  });
+</script>
+{% endblock %}
+{% block content %}
+<form id="form" action="/service/addpoints" method="post">
+  <table align="center">
+  <tr><td>Username:</td><td><input type="text" id="username" name="username"></td></tr>
+  <tr><td>Reason:</td><td><input type="text" id="reason" name="reason"></td></tr>
+  <tr><td>Points:</td><td><input type="text" id="points" name="points"></td></tr>
+  <tr><td colspan="2"><i><div style="width:300px" id="points-suggest"></div></i></td></tr>
+  <tr><td></td><td>
+<input type="submit" value="Add Points"/>
+  </td></tr>
+  </table>
+</form>
+{% endblock %}

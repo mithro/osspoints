@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  td {
+    border-bottom: 1px solid black;
+    padding: 3px;
+    text-align: center;
+  }
+</style>
+<div style="font-size:3em;font-weight:bold;">
+  <table align="center">
+    <tr><td><b>username</b></td><td><b>points</b></td></tr>
+    {% for earner in top_earners %}
+    <tr><td><a href="/userpoints?username={{earner.username}}">{{earner.username}}</a></td><td>{{ earner.points}}</td></tr>
+    {% endfor %}
+  </table>
+  <br/>
+<!-- if admin, give add points link !-->
+</div>
+{% endblock %}

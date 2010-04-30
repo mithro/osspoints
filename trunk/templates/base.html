@@ -1,0 +1,49 @@
+<html>
+ <head>
+  <title>{{ page_title }}</title>
+  <style type="text/css">
+    body {
+      font-family: Courier, fixed-width;
+      font-size: 16px;
+      background-color: black;
+    }
+    input {
+      font-family: Courier, fixed-width;
+    }
+    #mainblock {
+      background-color: white;
+      margin: auto;
+      width: 70%;
+      margin-top: 20px;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+    #mainlogo {
+      font-size: 48px;
+      text-shadow:  rgba(0, 0, 0, 0.496094) 0px 2px 2px;
+    }
+  </style>
+  {% block scripts %}
+  {% endblock %}
+ </head>
+<body>
+<div id="mainblock">
+<h1 id="mainlogo">OSSpoints</h1>
+  <br/>
+{% block content %}
+{% endblock %}
+<br/><br/>
+<hr style="background-color:black;height:10px;">
+<div style="margin-top:10px;">
+  --
+  <a href="/userpoints">Your Points</a> --
+  <a href="/">Top Points</a> --
+  {% if is_admin %}
+  <a href="/addpoints">Add Points</a> --
+  {% endif %}
+  <a href="{{ url }}">{{ url_linktext }}</a>
+  --
+</div>
+</div>
+</body>
+</html>
