@@ -1,8 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
+<style>
+  td {
+    border-bottom: 1px solid black;
+    padding: 3px;
+    text-align: center;
+  }
+</style>
 {{ username }}<br/><br/>
 {% if points_earner %}
 <b>{{ points_earner.points }} total points</b>
+
+<br/><br>
+<table align="center">
+<tr>
+  <td>date</td>
+  <td>reason</td>
+  <td>points</td>
+</tr>
+{% for log in logs %}
+ <tr>
+   <td>{{ log.date|date:"M/d" }}</td>
+   <td>{{ log.reason }}</td>
+   <td>{{ log.points }}</td>
+ </tr>
+{% endfor %}
+</table>
 
 {% else %}
  <b>No points yet!</b>
