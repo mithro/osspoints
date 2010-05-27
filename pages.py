@@ -66,6 +66,16 @@ class Home(BasePage):
     return 'home.html'
 
 
+class PointsForPrizes(BasePage):
+  """The signup page, displays a form."""
+
+  def GetTemplateValues(self):
+    template_values = BasePage.GetTemplateValues(self, 'Points & Prizes')
+    return template_values
+
+  def GetTemplateFilename(self):
+    return 'prizes.html'
+
 class AddPoints(BasePage):
   """The signup page, displays a form."""
 

@@ -57,10 +57,12 @@ class AddPoints(webapp.RequestHandler):
     sender_email = 'pamelafox@google.com'
     receiver_email = username
     subject = 'Congrats on earning OSSPoints!'
-    body = 'You have earned %s points. You now have %s points total.' % (points,
+    body = 'You have earned %s points. You now have %s points total.\n' % (points,
                                                                          points_earner.points)
+
     if first_time:
-      body = body + 'Since this is your first time earning OSSPoints, you\'ve also \
-      earned the first time bonus (a t-shirt!).'
+      body = body + 'Since this is your first time earning OSSPoints, you\'ve also earned the first time bonus (a t-shirt!).\n'
+
+    body = '\nFor more info on earning and redeeming OSSPoints, visit http://osspoints.appspot.com'
 
     mail.send_mail(sender_email, receiver_email, subject, body)

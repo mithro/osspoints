@@ -5,9 +5,11 @@ api_version: 1
 
 handlers:
 - url: /js
+  login: required
   static_dir: js
 
 - url: /css
+  login: required
   static_dir: css
 
 - url: /mypoints

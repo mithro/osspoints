@@ -24,6 +24,7 @@ def main():
       ('/', pages.Home),
       ('/addpoints', pages.AddPoints),
       ('/userpoints', pages.UserPoints),
+      ('/pointsforprizes', pages.PointsForPrizes),
       ('/service/addpoints', services.AddPoints),
       ], debug=True)
   run_wsgi_app(application)

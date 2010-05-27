@@ -7,7 +7,9 @@
     text-align: center;
   }
 </style>
-<div style="font-size:3em;font-weight:bold;">
+<div style="font-size:1.1em;font-weight:bold;">
+  {% include "_welcome.html" %}
+  <p>Check out the top points earners below:</p>
   <table align="center">
     <tr><td><b>username</b></td><td><b>points</b></td></tr>
     {% for earner in top_earners %}
