@@ -12,6 +12,7 @@ customizations.
 """
 
 import os
+import logging
 
 from google.appengine.ext import webapp
 from google.appengine.api import users 
@@ -99,6 +100,12 @@ class UserPoints(BasePage):
     points_earner = query.get()
     template_values['username'] = username
     template_values['points_earner'] = points_earner
+    if points_earner:
+      query = db.Query(models.PointsLogEntry)
+      query.filter('earner =', points_earner)
+      logs = query.fetch(100)
+      logging.info(logs)
+      template_values['logs'] = logs
     return template_values
 
   def GetTemplateFilename(self):
